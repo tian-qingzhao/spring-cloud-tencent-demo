@@ -4,11 +4,11 @@ server:
 spring:
   cloud:
     polaris:
-
-      namespace: default
-      address: grpc://localhost:8091
+      namespace: default # 命名空间
+      address: grpc://localhost:8091 # server端地址，8091为grpc协议注册，8090为http协议注册
       discovery:
-        enabled: true
+        enabled: true # 开启服务发现功能，默认开启
+        register-enabled: true # 开启服务注册功能，默认开启
       stat:
         enabled: true # 是否开启指标监控
         port: 28093 # prometheus拉取端口
