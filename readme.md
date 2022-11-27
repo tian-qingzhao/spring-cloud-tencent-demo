@@ -62,15 +62,15 @@ provider服务两个实例完整启动参数分别添加：
 ```java
 @RequestMapping("provider")
 public String provider(String env) {
-        if (System.getProperty("spring.cloud.tencent.metadata.content.env").equals(env)) {
-        throw new RuntimeException("env等于dev1时手动抛出异常测试服务熔断");
-        }
-        
-        Integer serverPort = environment.getProperty("server.port", Integer.class);
-        String result = System.currentTimeMillis() + " " + env + " " + serverPort;
-        System.out.println(result);
-        return result;
-        }
+    if (System.getProperty("spring.cloud.tencent.metadata.content.env").equals(env)) {
+    throw new RuntimeException("env等于dev1时手动抛出异常测试服务熔断");
+    }
+    
+    Integer serverPort = environment.getProperty("server.port", Integer.class);
+    String result = System.currentTimeMillis() + " " + env + " " + serverPort;
+    System.out.println(result);
+    return result;
+}
 ```
 
 http://localhost:7022/consumer?env=dev2
