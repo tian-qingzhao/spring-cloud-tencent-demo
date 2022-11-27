@@ -1,0 +1,36 @@
+server:
+  port: 7022
+
+spring:
+  cloud:
+    polaris:
+
+      namespace: default
+      address: grpc://localhost:8091
+      discovery:
+        enabled: true
+      stat:
+        enabled: true # 是否开启指标监控
+        port: 28093 # prometheus拉取端口
+
+      ratelimit:
+        enabled: true # 开启限流功能，默认开启
+        reject-request-tips: 限流了 # 限流时自定义返回内容
+
+      circuitbreaker:
+        enabled: true # 开启熔断功能，默认开启
+    loadbalancer:
+      configurations: polaris # 熔断模块，2020.0.x SDK需要添加这个配置
+
+    tencent:
+      metadata: # 元数据，动态路由可根据元数据进行流量分发
+        content:
+          env: env1
+
+      rpc-enhancement:
+        enabled: true # 是否开启RPC增强
+        reporter:
+          enabled: true # 是否开启上报调用结果
+          ignore-internal-server-error: true # 上报调用结果是否将500状态码判定为调用失败，默认为不判定
+          series: server_error # 需要上报FAILED调用结果的HTTP状态码系列，默认为5xx
+          statuses: INTERNAL_SERVER_ERROR, bad_gateway # 需要上报FAILED调用结果的HTTP状态码列表

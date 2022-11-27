@@ -1,0 +1,39 @@
+---
+code: 200000
+info: "execute success"
+type: "RATE_LIMIT"
+service:
+  name: "consumer-service"
+  namespace: "default"
+  revision: "e99e876d883747058f905972e47537dc"
+rateLimit:
+  rules:
+  - id: "ca73261462d74eb6b20c40037c8d4c2b"
+    service: "consumer-service"
+    namespace: "default"
+    priority: 0
+    type: "LOCAL"
+    amounts:
+    - maxAmount: 10
+      validDuration: "1s"
+    action: "REJECT"
+    revision: "e99e876d883747058f905972e47537dc"
+    regex_combine: true
+    method:
+      value: "/consumer"
+    max_queue_delay: 1
+  - id: "72aa31a1641b47b2bc198f09c77fd7d3"
+    service: "consumer-service"
+    namespace: "default"
+    priority: 0
+    type: "LOCAL"
+    amounts:
+    - maxAmount: 1
+      validDuration: "1s"
+    action: "REJECT"
+    revision: "084ba87040354c16a445ae9c8cdabecc"
+    regex_combine: true
+    method:
+      value: "/getConfig"
+    max_queue_delay: 1
+  revision: "e99e876d883747058f905972e47537dc"

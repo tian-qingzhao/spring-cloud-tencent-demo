@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-cloud-tencent-demo</artifactId>
+        <groupId>com.tqz.tencent.cloud</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    
+    <artifactId>consumer-service</artifactId>
+    
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+    
+    <dependencies>
+        <!-- Spring Boot Web 启动器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        
+        <!-- 引入 Spring Cloud Tencent 的服务注册发现依赖 -->
+        <dependency>
+            <groupId>com.tencent.cloud</groupId>
+            <artifactId>spring-cloud-starter-tencent-polaris-discovery</artifactId>
+        </dependency>
+        
+        <!-- 引入 Spring Cloud Tencent 的配置中心依赖 -->
+        <dependency>
+            <groupId>com.tencent.cloud</groupId>
+            <artifactId>spring-cloud-starter-tencent-polaris-config</artifactId>
+        </dependency>
+        
+        <!-- 引入 Spring Cloud Tencent 的服务路由依赖 -->
+        <dependency>
+            <groupId>com.tencent.cloud</groupId>
+            <artifactId>spring-cloud-starter-tencent-polaris-router</artifactId>
+        </dependency>
+    
+        <!-- 引入 Spring Cloud Tencent 的服务路由依赖服务限流依赖 -->
+        <dependency>
+            <groupId>com.tencent.cloud</groupId>
+            <artifactId>spring-cloud-starter-tencent-polaris-ratelimit</artifactId>
+        </dependency>
+    
+        <!-- 引入 Spring Cloud Tencent 的服务熔断依赖 -->
+        <dependency>
+            <groupId>com.tencent.cloud</groupId>
+            <artifactId>spring-cloud-starter-tencent-polaris-circuitbreaker</artifactId>
+        </dependency>
+        
+        <!-- Spring Cloud OpenFeign 远程调用依赖 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        
+        <!-- Spring Boot 2.4.x版本以上使用bootstrap上下文从配置中心获取配置需要引入该依赖 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,20 @@
+server:
+  port: 7011
+
+spring:
+  application:
+    name: provider-service
+
+  cloud:
+    polaris:
+      namespace: default
+      address: grpc://localhost:8091
+      discovery:
+        enabled: true
+      stat:
+        enabled: true
+        port: 28082
+
+    tencent:
+      metadata:
+        content: dev1

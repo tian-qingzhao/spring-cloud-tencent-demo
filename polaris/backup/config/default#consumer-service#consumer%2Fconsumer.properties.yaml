@@ -1,0 +1,7 @@
+---
+namespace: "default"
+fileGroup: "consumer-service"
+fileName: "consumer/consumer.properties"
+content: "consumer.test=测试consumer配置内容"
+version: 1
+md5: "18da8ccda7fffe69dec706992e9533f7"

@@ -1,0 +1,38 @@
+---
+code: 200000
+info: "execute success"
+type: "CIRCUIT_BREAKER"
+service:
+  name: "provider-service"
+  namespace: "default"
+  revision: "879c7a5b24a64375a3a6f4b0f75a8b4a"
+circuitBreaker:
+  id: "provider-service.default"
+  version: "1669524279586"
+  name: "provider-service"
+  namespace: "default"
+  service: "provider-service"
+  serviceNamespace: "default"
+  inbounds:
+  - sources:
+    - service: "*"
+      namespace: "*"
+    destinations:
+    - resource: "INSTANCE"
+      recover:
+        sleepWindow: "1s"
+        outlierDetectWhen: "ALWAYS"
+      policy:
+        errorRate:
+          enable: true
+          requestVolumeThreshold: 1
+          errorRateToOpen: 10
+      method:
+        value: "/provider"
+  owners: "Polaris"
+  business: ""
+  department: ""
+  comment: ""
+  ctime: "2022-11-27 12:44:39"
+  mtime: "2022-11-27 12:44:39"
+  revision: "879c7a5b24a64375a3a6f4b0f75a8b4a"

@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: consumer-service
+  cloud:
+    polaris:
+      namespace: default
+      address: grpc://localhost:8091
+      config:
+        auto-refresh: true
+        groups:
+          - name: ${spring.application.name} # 配置分组名称
+            files: consumer/consumer.properties # 配置文件名
