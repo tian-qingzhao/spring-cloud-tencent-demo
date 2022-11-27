@@ -1,6 +1,6 @@
 # 一.安装 Polaris 服务端
 
-安装文档地址：[https://polarismesh.cn/docs/%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%89%E8%A3%85/](https://polarismesh.cn/docs/%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AE%89%E8%A3%85/)
+安装文档地址：[https://polarismesh.cn/docs/使用指南/服务端安装](https://polarismesh.cn/docs/使用指南/服务端安装)
 
 # 二.provider服务
 
@@ -26,7 +26,7 @@ provider服务两个实例完整启动参数分别添加：
 ![.png](img_1.png)
 
 通过 `@Value` 注解能够实现读取到远端的配置，且可不使用 `@RefreshScope` 注解即可达到配置自动刷新的目的。
-`PolarisRefreshAffectedContextRefresher` 类实现只刷新受影响的bean，
+`PolarisRefreshAffectedContextRefresher` 类实现只刷新受影响的有 `@Value` 注解字段的bean，
 `AffectedConfigurationPropertiesRebinder` 类实现只刷新受影响的 `@ConfigurationProperties` 注解类。
 如果想使用传统的刷新所有，可通过 `spring.cloud.polaris.config.refresh-type=refresh_context` 配置设置即可。
 
