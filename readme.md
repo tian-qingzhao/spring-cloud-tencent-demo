@@ -5,9 +5,10 @@
 # 二.provider服务
 
 添加服务注册与发现依赖。
-启动两个服务，如果服务调用者consumer服务使用到 `动态路由` 组件，需要追加 `spring.cloud.tencent.metadata.content.env` 参数，
-完整启动参数分别添加 `-Dserver.port=7011 -Dspring.cloud.polaris.stat.port=28081 -Dspring.cloud.tencent.metadata.content.env=dev1`，
-和 `-Dserver.port=7012 -Dspring.cloud.polaris.stat.port=28082 -Dspring.cloud.tencent.metadata.content.env=dev2`
+启动两个实例，如果服务调用者consumer服务使用到 `动态路由` 组件，需要追加 `spring.cloud.tencent.metadata.content.env` 参数，
+provider服务两个实例完整启动参数分别添加：
+- `-Dserver.port=7011 -Dspring.cloud.polaris.stat.port=28081 -Dspring.cloud.tencent.metadata.content.env=dev1`，
+- `-Dserver.port=7012 -Dspring.cloud.polaris.stat.port=28082 -Dspring.cloud.tencent.metadata.content.env=dev2`
 
 # 三.consumer服务
 
@@ -46,8 +47,8 @@
 `The request is denied by rate limit because the throttling threshold is reached`
 可通过 `spring.cloud.polaris.ratelimit.rejectRequestTips` 配置自定义返回信息。
 
-servlet环境下可扩展 `QuotaCheckServletFilter` 类进行扩展自定义返回信息，
-reactive环境下可扩展 `QuotaCheckReactiveFilter` 类进行扩展自定义返回信息。
+- servlet环境下可扩展 `QuotaCheckServletFilter` 类进行扩展自定义返回信息，
+- reactive环境下可扩展 `QuotaCheckReactiveFilter` 类进行扩展自定义返回信息。
 
 #### 5.服务熔断
 服务调用者添加服务熔断依赖，
@@ -78,8 +79,8 @@ http://localhost:7022/consumer?env=dev2
 
 # 四.客户端缓存信息
 
-服务提供者的信息会缓存在 `polaris/backup/svc#命名空间#服务提供者的服务名称#instance.yaml` 文件里面。
-配置内容会缓存在 `./polaris/backup/config` 目录下。
-动态路由的信息会缓存在 `polaris/backup/svc#命名空间#服务提供者的服务名称#routing.yaml` 文件里面。
-服务限流的信息会缓存在 `polaris/backup/svc#命名空间#服务提供者的服务名称#rate_limiting.yaml` 文件里面。
-服务东段的信息会缓存在 `polaris/backup/svc#命名空间#服务提供者的服务名称#circuit_breaking.yaml` 文件里面。
+- 服务提供者的信息会缓存在 `polaris/backup/svc#命名空间#服务提供者的服务名称#instance.yaml` 文件里面。
+- 配置内容会缓存在 `./polaris/backup/config` 目录下。
+- 动态路由的信息会缓存在 `polaris/backup/svc#命名空间#服务提供者的服务名称#routing.yaml` 文件里面。
+- 服务限流的信息会缓存在 `polaris/backup/svc#命名空间#服务提供者的服务名称#rate_limiting.yaml` 文件里面。
+- 服务东段的信息会缓存在 `polaris/backup/svc#命名空间#服务提供者的服务名称#circuit_breaking.yaml` 文件里面。
