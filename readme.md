@@ -83,4 +83,4 @@ http://localhost:7022/consumer?env=dev2
 - 配置内容会缓存在 `./polaris/backup/config` 目录下。
 - 动态路由的信息会缓存在 `polaris/backup/svc#命名空间#服务提供者的服务名称#routing.yaml` 文件里面。
 - 服务限流的信息会缓存在 `polaris/backup/svc#命名空间#服务提供者的服务名称#rate_limiting.yaml` 文件里面。
-- 服务东段的信息会缓存在 `polaris/backup/svc#命名空间#服务提供者的服务名称#circuit_breaking.yaml` 文件里面。
+- 服务熔断的信息会缓存在 `polaris/backup/svc#命名空间#服务提供者的服务名称#circuit_breaking.yaml` 文件里面。
