@@ -4,3 +4,5 @@
 *.log linguist-language=java
 *.yaml linguist-language=java
 *.lock linguist-language=java
+*.png linguist-language=java
+*.pom linguist-language=java
