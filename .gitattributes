@@ -6,3 +6,4 @@
 *.lock linguist-language=Java
 *.png linguist-language=Java
 *.pom linguist-language=Java
+*.java linguist-language=Java
